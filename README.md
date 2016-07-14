@@ -2,6 +2,11 @@
 
 Adapted from [this Gist](https://gist.github.com/francescoagati/4242223) by @francescoagati.
 
+## Scripts
+
+* `run-benchmarks.sh` - runs `benchmark-*.rb`
+* `benchmark-all-rubies.sh` - runs `benchmark-*.rb` for every Ruby in `rbenv versions`. Not for the faint-hearted.
+
 ## Benchmarks
 
 * `benchmark-celluloid-backported-pools.rb` - uses the backported API for [`celluloid`](https://github.com/celluloid/celluloid)
