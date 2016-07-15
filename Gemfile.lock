@@ -20,6 +20,7 @@ GEM
       timers (>= 4.1.1)
     celluloid-supervision (0.20.6)
       timers (>= 4.1.1)
+    concurrent-ruby (1.0.2)
     hitimes (1.2.4)
     hitimes (1.2.4-java)
     parallel (1.9.0)
@@ -35,6 +36,7 @@ PLATFORMS
 DEPENDENCIES
   celluloid
   celluloid-pmap
+  concurrent-ruby
   parallel
   peach
   pmap
