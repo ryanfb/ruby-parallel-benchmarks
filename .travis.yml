@@ -1,0 +1,7 @@
+sudo: false
+language: ruby
+rvm:
+ - 2.2
+ - jruby
+ - rbx-2
+script: ./run-benchmarks.sh
