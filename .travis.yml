@@ -10,7 +10,6 @@ rvm:
   - jruby-1.7
   - jruby-18mode
   - jruby-19mode
-  - rbx-2
 jdk:
   - openjdk7
   - oraclejdk7
@@ -47,11 +46,5 @@ matrix:
     - rvm: 2.2
       jdk: oraclejdk7
     - rvm: 2.2
-      jdk: oraclejdk8
-    - rvm: rbx-2
-      jdk: openjdk7
-    - rvm: rbx-2
-      jdk: oraclejdk7
-    - rvm: rbx-2
       jdk: oraclejdk8
 script: ./run-benchmarks.sh
