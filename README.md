@@ -13,12 +13,12 @@ Adapted from [this Gist](https://gist.github.com/francescoagati/4242223) by @fra
 
 ## Benchmarks
 
+* `benchmark-baseline.rb` - baseline benchmark with no attempt at parallelism: if something performs worse than this, you're getting a performance hit
 * `benchmark-celluloid-backported-pools.rb` - uses the backported API for [`celluloid`](https://github.com/celluloid/celluloid)
 * `benchmark-celluloid-current-pools.rb` - uses the current API for [`celluloid`](https://github.com/celluloid/celluloid)
 * `benchmark-celluloid-pmap.rb` - uses [`celluloid-pmap`](https://github.com/jwo/celluloid-pmap)
 * `benchmark-concurrent-fixed-thread-pool.rb` - uses [`concurrent-ruby`](https://github.com/ruby-concurrency/concurrent-ruby)'s [`FixedThreadPool`](https://github.com/ruby-concurrency/concurrent-ruby/blob/master/doc/thread_pools.md)
 * `benchmark-fork.rb` - uses the native `fork` call. Note that this doesn't use pooling/fork limits, and `fork` is not portable to JRuby, Windows, etc.
-* `benchmark-naive.rb` - naive benchmark with no attempt at parallelism: if something performs worse than this, you're getting a performance hit
 * `benchmark-parallel-process.rb` - uses processes from [`parallel`](https://github.com/grosser/parallel)
 * `benchmark-parallel-thread.rb` - uses threads from [`parallel`](https://github.com/grosser/parallel)
 * `benchmark-peach.rb` - uses [`peach`](http://peach.rubyforge.org/)
