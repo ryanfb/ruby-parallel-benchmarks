@@ -17,7 +17,7 @@ class BenchmarkWorker
     ARRAY.dup.sort
   end
 
-  def sleep
+  def sleep_work
     sleep(1)
   end
 
@@ -29,26 +29,26 @@ end
 Benchmark.bmbm do |x|
   x.report("pidigits") {
     celluloid_pool = BenchmarkWorker.pool(size: THREAD_LIMIT)
-    ITERATIONS.times do |i|
-      celluloid_pool.async.pi(i + 1000)
-    end
+    (0..ITERATIONS - 1).map { |i|
+      celluloid_pool.future(:pi, i + 1000)
+    }.map(&:value)
   }
   x.report("sort!") {
     celluloid_pool = BenchmarkWorker.pool(size: THREAD_LIMIT)
-    ITERATIONS.times do 
-      celluloid_pool.async.sort!
-    end
+    (1..ITERATIONS).map { 
+      celluloid_pool.future(:sort!)
+    }.map(&:value)
   }
   x.report("sort") {
     celluloid_pool = BenchmarkWorker.pool(size: THREAD_LIMIT)
-    ITERATIONS.times do 
-      celluloid_pool.async.sort
-    end
+    (1..ITERATIONS).map {
+      celluloid_pool.future(:sort)
+    }.map(&:value)
   }
   x.report("sleep") {
     celluloid_pool = BenchmarkWorker.pool(size: THREAD_LIMIT)
-    SLEEP_ITERATIONS.times do 
-      celluloid_pool.async.sleep
-    end
+    (1..SLEEP_ITERATIONS).map {
+      celluloid_pool.future(:sleep_work)
+    }.map(&:value)
   }
 end
