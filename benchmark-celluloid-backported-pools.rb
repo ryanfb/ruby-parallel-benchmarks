@@ -7,6 +7,7 @@ require_relative 'constants'
 
 class BenchmarkWorker
   include Celluloid
+  require_relative 'pidigits'
 
   def sort!
     ARRAY.dup.sort!
@@ -19,9 +20,19 @@ class BenchmarkWorker
   def sleep
     sleep(1)
   end
+
+  def pi(n)
+    pidigits(n)
+  end
 end
 
 Benchmark.bmbm do |x|
+  x.report("pidigits") {
+    celluloid_pool = BenchmarkWorker.pool(size: THREAD_LIMIT)
+    ITERATIONS.times do |i|
+      celluloid_pool.async.pi(i + 1000)
+    end
+  }
   x.report("sort!") {
     celluloid_pool = BenchmarkWorker.pool(size: THREAD_LIMIT)
     ITERATIONS.times do 
