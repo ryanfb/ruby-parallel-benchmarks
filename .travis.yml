@@ -11,19 +11,4 @@ rvm:
   - 2.3.1
   - jruby-9.0.5.0
   - jruby-1.7.20
-jdk:
-  - openjdk7
-  - oraclejdk8
-matrix:
-  exclude:
-    - rvm: 1.9.3
-      jdk: oraclejdk8
-    - rvm: 2.0.0-p648
-      jdk: oraclejdk8
-    - rvm: 2.1.9
-      jdk: oraclejdk8
-    - rvm: 2.2.5
-      jdk: oraclejdk8
-    - rvm: 2.3.1
-      jdk: oraclejdk8
 script: ./run-benchmarks.sh
