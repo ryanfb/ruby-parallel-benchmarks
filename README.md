@@ -2,7 +2,7 @@
 
 Because there's a proliferation of parallelism techniques/gems for Ruby, this collection of scripts aims to perform some simple benchmarks across them to help people in choosing something that's right for them and their needs.
 
-Results for running all benchmarks under various Rubies are available [on Travis](https://travis-ci.org/ryanfb/ruby-parallel-benchmarks).
+Results for running all benchmarks under various Rubies are available [on Travis](https://travis-ci.com/ryanfb/ruby-parallel-benchmarks).
 
 Adapted from [this Gist](https://gist.github.com/francescoagati/4242223) by @francescoagati.
 
